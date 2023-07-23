@@ -165,10 +165,10 @@
 
         @media screen and (min-width: 900px) {
             display: none;
-        }
+        } //Hide Hamburger menu itself for web
     }
 
     @media screen and (min-width: 900px) {
         display: none;
-    }
+    } //Hide Hamburger menu btn for web
 }
