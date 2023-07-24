@@ -1,6 +1,7 @@
 import React from 'react'
 
 import './Testimonials.scss'
+import { AppWrap } from '../../wrapper'
 
 const Testimonials = () => {
   return (
@@ -8,4 +9,4 @@ const Testimonials = () => {
   )
 }
 
-export default Testimonials
+export default AppWrap(Testimonials,'testimonials')

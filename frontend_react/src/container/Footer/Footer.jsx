@@ -1,6 +1,7 @@
 import React from 'react'
 
 import './Footer.scss'
+import { AppWrap } from '../../wrapper'
 
 const Footer = () => {
   return (
@@ -9,4 +10,4 @@ const Footer = () => {
 }
 
 
-export default Footer
+export default AppWrap(Footer, 'contact')
