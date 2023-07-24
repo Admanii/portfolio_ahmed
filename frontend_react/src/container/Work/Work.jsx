@@ -26,7 +26,20 @@ const Work = () => {
 
 
 
-  const handleWorkFilter = () => { }
+  const handleWorkFilter = (item) => { 
+    setactiveFilter(item);
+    setanimateCard([{y:100, opacity:0}])
+
+    setTimeout(()=>{
+      setanimateCard([{y:0, opacity:1}])
+      if(item === 'All'){
+        setFilterWork(works);
+      }else {
+        setFilterWork(works.filter((work) => work.tags.includes(item)))
+      }
+    }, 500)
+
+  }
 
   return (
     <>
@@ -35,7 +48,7 @@ const Work = () => {
         <span> Portfolio </span>
       </h2>
 
-      <div className='app__wor-filter'>
+      <div className='app__work-filter'>
         {['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'].map((item, index) => (
           <div
             key={index}
@@ -77,7 +90,6 @@ const Work = () => {
                   </motion.div>
 
                 </a>
-
                 <a href={work.codeLink} target='_blank' rel='noreferer'>
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
