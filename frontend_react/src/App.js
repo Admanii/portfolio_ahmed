@@ -13,7 +13,6 @@ const App = () => {
       <Skills/>
       <Testimonials/>
       <Footer/>
-
     </div>
   )
 }
