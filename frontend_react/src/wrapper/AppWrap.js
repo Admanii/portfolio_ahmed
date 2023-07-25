@@ -3,11 +3,22 @@ import { NavigationDots, SocialMedia } from '../components'
 // HIGHER ORDER COMPONENT
 
 const AppWrap = (Component, idName, classNames) => function HOC() {
+
+    // Define a variable to store the background color style
+    let backgroundColorStyle = {};
+
+    // Check if idName is 'skills', and if so, set the background color to white
+    if (idName == 'skills' || idName == 'about' || idName == 'contact') {
+      backgroundColorStyle = { backgroundColor: 'white' };
+    }
+
+
+
   return (
-    <div id={idName} className={`app__container ${classNames}`}>
+    <div id={idName} className={`app__container ${classNames}` }  style={backgroundColorStyle}>
       <SocialMedia active={idName}/>
 
-      <div className='app__wrapper app__flex'>
+      <div className='app__wrapper app__flex' >
         <Component/>
 
         <div className='copyright'>
