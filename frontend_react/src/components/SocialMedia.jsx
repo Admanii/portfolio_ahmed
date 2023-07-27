@@ -4,12 +4,11 @@ import { FaFacebook } from 'react-icons/fa'
 
 const SocialMedia = ({ active }) => {
 
-  const isHome = active === 'home';
-  console.log(active)
+  // console.log(active)
   return (
     // <div className='app__social' style={{ marginBottom: 25}}>
     //Icons were cropping in home page, hence the conditional styling for id == home
-    <div className='app__social' style={{ marginBottom: isHome ? 25 : 0 }}>
+    <div className='app__social' >
       <div>
         <BsTwitter />
       </div>
