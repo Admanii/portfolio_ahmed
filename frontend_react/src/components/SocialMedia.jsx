@@ -1,6 +1,8 @@
 import React from 'react'
-import { BsTwitter, BsInstagram } from 'react-icons/bs'
-import { FaFacebook } from 'react-icons/fa'
+import { BsInstagram } from 'react-icons/bs'
+import { FaLinkedin, FaGithub } from 'react-icons/fa'
+import { MdEmail } from 'react-icons/md'
+
 
 const SocialMedia = ({ active }) => {
 
@@ -10,15 +12,29 @@ const SocialMedia = ({ active }) => {
     //Icons were cropping in home page, hence the conditional styling for id == home
     <div className='app__social' >
       <div>
-        <BsTwitter />
+        <a
+          href="https://github.com/Admanii"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaGithub />
+        </a>
       </div>
 
       <div>
-        <FaFacebook />
+        <a
+          href="https://www.linkedin.com/in/muhammad-ahmed-fau/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaLinkedin />
+        </a>
       </div>
 
       <div>
-        <BsInstagram />
+        <a href="mailto:ahmedriaz-50@hotmail.com">
+          <MdEmail />
+        </a>
       </div>
 
     </div>
