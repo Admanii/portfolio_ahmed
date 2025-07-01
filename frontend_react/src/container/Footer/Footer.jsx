@@ -10,7 +10,7 @@ const Footer = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { username, email, message } = formData;
+  const { subject, email, message } = formData;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -18,21 +18,26 @@ const Footer = () => {
   };
 
   const handleSubmit = () => {
-    setLoading(true);
+    const subject = encodeURIComponent(formData.subject);
+    const body = encodeURIComponent(formData.message);
+    const mailtoLink = `mailto:ahmedriaz-50@hotmail.com?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
 
-    const contact = {
-      _type: 'contact',
-      name: formData.username,
-      email: formData.email,
-      message: formData.message,
-    };
+    // setLoading(true);
 
-    client.create(contact)
-      .then(() => {
-        setLoading(false);
-        setIsFormSubmitted(true);
-      })
-      .catch((err) => console.log(err));
+    // const contact = {
+    //   _type: 'contact',
+    //   name: formData.subject,
+    //   email: formData.email,
+    //   message: formData.message,
+    // };
+
+    // client.create(contact)
+    //   .then(() => {
+    //     setLoading(false);
+    //     setIsFormSubmitted(true);
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   return (
@@ -46,17 +51,17 @@ const Footer = () => {
         </div>
         <div className="app__footer-card">
           <img src={images.mobile} alt="phone" />
-          <a href="tel:+92 336 0254696" className="p-text">+92 336 0254696</a>
+          <a href="tel:+49 152 11811247" className="p-text">+49 152 11811247</a>
         </div>
       </div>
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
           <div className="app__flex">
-            <input className="p-text" type="text" placeholder="Your Name" name="username" value={username} onChange={handleChangeInput} />
+            <input className="p-text" type="text" placeholder="Subject" name="subject" value={subject} onChange={handleChangeInput} />
           </div>
-          <div className="app__flex">
+          {/* <div className="app__flex">
             <input className="p-text" type="email" placeholder="Your Email" name="email" value={email} onChange={handleChangeInput} />
-          </div>
+          </div> */}
           <div>
             <textarea
               className="p-text"
