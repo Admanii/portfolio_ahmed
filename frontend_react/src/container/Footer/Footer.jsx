@@ -18,9 +18,17 @@ const Footer = () => {
   };
 
   const handleSubmit = () => {
-    const subject = encodeURIComponent(formData.subject);
-    const body = encodeURIComponent(formData.message);
-    const mailtoLink = `mailto:ahmedriaz-50@hotmail.com?subject=${subject}&body=${body}`;
+    const subject = formData.subject?.trim() || "Let’s Get in Touch";
+    const body = formData.message?.trim() || `Hi Ahmed,
+
+I came across your portfolio and wanted to get in touch. I have a few questions and would love to connect.
+
+Looking forward to your response.
+
+Best regards,
+[Your Name]
+`;;
+    const mailtoLink = `mailto:ahmedriaz-50@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
 
     // setLoading(true);
