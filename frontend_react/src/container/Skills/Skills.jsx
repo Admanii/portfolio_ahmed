@@ -76,7 +76,7 @@ const Skills = () => {
                    <Tippy content= {<span className='skills-tooltip'>{work.desc}</span>}>
                     <motion.div
                       whileInView={{ opacity: [0, 1] }}
-                      transition={{ duration: 0.5 }}
+                      transition={{ duration: 3 }}
                       className='app__skills-exp-work'
                       data-tip
                       data-for={work.name}

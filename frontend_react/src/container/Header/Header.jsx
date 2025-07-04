@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { easeInOut, motion } from 'framer-motion'
 
 import './Header.scss'
@@ -19,6 +19,8 @@ const scaleVariants = {
 }
 
 const Header = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div className='app__header app__flex'>
       <motion.div
@@ -28,7 +30,25 @@ const Header = () => {
       >
         <div className='app__header-badge'>
           <div className='badge-cmp app__flex'>
-            <span>👋🏻</span>
+            <motion.span
+              animate={
+                isHovered
+                  ? {
+                    rotate: [0, 20, -20, 20, -20, 0],
+                  }
+                  : {}
+              }
+              transition={
+                isHovered
+                  ? {
+                    duration: 1,
+                    repeat: Infinity,
+                  }
+                  : { duration: 0 }
+              }
+            >
+              👋🏻
+            </motion.span>
             <div style={{ marginLeft: 20 }}>
               <p className='p-text'>Hello, I am</p>
               <h1 className='head-text'>Ahmed</h1>
@@ -48,6 +68,8 @@ const Header = () => {
         whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className='app__header-img'
+        onHoverStart={() => setIsHovered(true)}
+        onHoverEnd={() => setIsHovered(false)}
       >
         <img src={images.admani} />
         <motion.img
@@ -66,7 +88,7 @@ const Header = () => {
         whileInView={scaleVariants.whileInView}
         className='app__header-circles'
       >
-        {[images.flutter, images.redux, images.sass].map((circle, index) => (
+        {[images.node, images.react, images.javascript].map((circle, index) => (
           <div className='circle-cmp app__flex' key={`circle-${index}`}>
             <img src={circle} alt='circle' />
           </div>
